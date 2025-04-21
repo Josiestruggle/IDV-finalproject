@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<COLLADA xmlns="http://www.collada.org/2008/03/COLLADASchema" version="1.5.0">
+	<asset>
+		<created>2025-04-16T18:08:07Z</created>
+		<modified>2025-04-16T18:08:07Z</modified>
+		<up_axis>Z_UP</up_axis>
+	</asset>
+	<library_geometries>
+		<geometry id="L1_P16.dae2">
+			<mesh>
+				<source id="L1_P16.dae2-positions">
+					<float_array id="L1_P16.dae2-positions-array" count="3" digits="2490374">-3.51942e-05 1.58166e-05 0</float_array>
+					<technique_common>
+						<accessor count="1" source="#L1_P16.dae2-positions-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="L1_P16.dae2-normals">
+					<float_array id="L1_P16.dae2-normals-array" count="3" digits="2490374">0 0 1</float_array>
+					<technique_common>
+						<accessor count="1" source="#L1_P16.dae2-normals-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="L1_P16.dae2-vertices">
+					<input semantic="POSITION" source="#L1_P16.dae2-positions"/>
+				</vertices>
+				<triangles count="1" material="L1_P16.dae2material">
+					<input offset="0" semantic="VERTEX" source="L1_P16.dae2-vertices" set="0"/>
+					<input offset="1" semantic="NORMAL" source="L1_P16.dae2-normals" set="0"/>
+					<p>0 0 0 0 0 0</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="L1_P16.dae3">
+			<mesh>
+				<source id="L1_P16.dae3-positions">
+					<float_array id="L1_P16.dae3-positions-array" count="3" digits="2490374">3.58392e-05 -1.58166e-05 0</float_array>
+					<technique_common>
+						<accessor count="1" source="#L1_P16.dae3-positions-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="L1_P16.dae3-normals">
+					<float_array id="L1_P16.dae3-normals-array" count="3" digits="2490374">0 0 1</float_array>
+					<technique_common>
+						<accessor count="1" source="#L1_P16.dae3-normals-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="L1_P16.dae3-vertices">
+					<input semantic="POSITION" source="#L1_P16.dae3-positions"/>
+				</vertices>
+				<triangles count="1" material="L1_P16.dae3material">
+					<input offset="0" semantic="VERTEX" source="L1_P16.dae3-vertices" set="0"/>
+					<input offset="1" semantic="NORMAL" source="L1_P16.dae3-normals" set="0"/>
+					<p>0 0 0 0 0 0</p>
+				</triangles>
+			</mesh>
+		</geometry>
+	</library_geometries>
+	<library_effects>
+		<effect id="L1_P16.dae0effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L1_P16.dae0material">
+			<instance_effect url="#L1_P16.dae0effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L1_P16.dae1effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L1_P16.dae1material">
+			<instance_effect url="#L1_P16.dae1effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L1_P16.dae2effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L1_P16.dae2material">
+			<instance_effect url="#L1_P16.dae2effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L1_P16.dae3effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L1_P16.dae3material">
+			<instance_effect url="#L1_P16.dae3effect"/>
+		</material>
+	</library_materials>
+	<library_visual_scenes>
+		<visual_scene id="Multipatch-Converted-Scene">
+			<node id="L1_P16.dae">
+				<translate>0 0 0</translate>
+				<instance_geometry url="#L1_P16.dae2">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="L1_P16.dae2material" target="#L1_P16.dae2material"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+				<instance_geometry url="#L1_P16.dae3">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="L1_P16.dae3material" target="#L1_P16.dae3material"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+		</visual_scene>
+	</library_visual_scenes>
+	<scene>
+		<instance_visual_scene url="#Multipatch-Converted-Scene"/>
+	</scene>
+</COLLADA>

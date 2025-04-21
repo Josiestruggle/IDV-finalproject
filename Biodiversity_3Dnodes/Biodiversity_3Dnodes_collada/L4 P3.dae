@@ -1,0 +1,1070 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<COLLADA xmlns="http://www.collada.org/2008/03/COLLADASchema" version="1.5.0">
+	<asset>
+		<created>2025-04-16T18:08:07Z</created>
+		<modified>2025-04-16T18:08:07Z</modified>
+		<up_axis>Z_UP</up_axis>
+	</asset>
+	<library_geometries>
+		<geometry id="L4_P3.dae14">
+			<mesh>
+				<source id="L4_P3.dae14-positions">
+					<float_array id="L4_P3.dae14-positions-array" count="3" digits="2490374">-1.96614e-05 -1.36572e-05 0</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae14-positions-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="L4_P3.dae14-normals">
+					<float_array id="L4_P3.dae14-normals-array" count="3" digits="2490374">0 0 1</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae14-normals-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="L4_P3.dae14-vertices">
+					<input semantic="POSITION" source="#L4_P3.dae14-positions"/>
+				</vertices>
+				<triangles count="1" material="L4_P3.dae14material">
+					<input offset="0" semantic="VERTEX" source="L4_P3.dae14-vertices" set="0"/>
+					<input offset="1" semantic="NORMAL" source="L4_P3.dae14-normals" set="0"/>
+					<p>0 0 0 0 0 0</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="L4_P3.dae15">
+			<mesh>
+				<source id="L4_P3.dae15-positions">
+					<float_array id="L4_P3.dae15-positions-array" count="3" digits="2490374">-1.83688e-05 -3.3221e-05 0</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae15-positions-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="L4_P3.dae15-normals">
+					<float_array id="L4_P3.dae15-normals-array" count="3" digits="2490374">0 0 1</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae15-normals-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="L4_P3.dae15-vertices">
+					<input semantic="POSITION" source="#L4_P3.dae15-positions"/>
+				</vertices>
+				<triangles count="1" material="L4_P3.dae15material">
+					<input offset="0" semantic="VERTEX" source="L4_P3.dae15-vertices" set="0"/>
+					<input offset="1" semantic="NORMAL" source="L4_P3.dae15-normals" set="0"/>
+					<p>0 0 0 0 0 0</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="L4_P3.dae16">
+			<mesh>
+				<source id="L4_P3.dae16-positions">
+					<float_array id="L4_P3.dae16-positions-array" count="3" digits="2490374">-1.83688e-05 -3.3221e-05 0</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae16-positions-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="L4_P3.dae16-normals">
+					<float_array id="L4_P3.dae16-normals-array" count="3" digits="2490374">0 0 1</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae16-normals-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="L4_P3.dae16-vertices">
+					<input semantic="POSITION" source="#L4_P3.dae16-positions"/>
+				</vertices>
+				<triangles count="1" material="L4_P3.dae16material">
+					<input offset="0" semantic="VERTEX" source="L4_P3.dae16-vertices" set="0"/>
+					<input offset="1" semantic="NORMAL" source="L4_P3.dae16-normals" set="0"/>
+					<p>0 0 0 0 0 0</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="L4_P3.dae17">
+			<mesh>
+				<source id="L4_P3.dae17-positions">
+					<float_array id="L4_P3.dae17-positions-array" count="3" digits="2490374">-8.21509e-06 -3.56207e-05 0</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae17-positions-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="L4_P3.dae17-normals">
+					<float_array id="L4_P3.dae17-normals-array" count="3" digits="2490374">0 0 1</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae17-normals-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="L4_P3.dae17-vertices">
+					<input semantic="POSITION" source="#L4_P3.dae17-positions"/>
+				</vertices>
+				<triangles count="1" material="L4_P3.dae17material">
+					<input offset="0" semantic="VERTEX" source="L4_P3.dae17-vertices" set="0"/>
+					<input offset="1" semantic="NORMAL" source="L4_P3.dae17-normals" set="0"/>
+					<p>0 0 0 0 0 0</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="L4_P3.dae18">
+			<mesh>
+				<source id="L4_P3.dae18-positions">
+					<float_array id="L4_P3.dae18-positions-array" count="3" digits="2490374">-8.21509e-06 -3.56207e-05 0</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae18-positions-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="L4_P3.dae18-normals">
+					<float_array id="L4_P3.dae18-normals-array" count="3" digits="2490374">0 0 1</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae18-normals-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="L4_P3.dae18-vertices">
+					<input semantic="POSITION" source="#L4_P3.dae18-positions"/>
+				</vertices>
+				<triangles count="1" material="L4_P3.dae18material">
+					<input offset="0" semantic="VERTEX" source="L4_P3.dae18-vertices" set="0"/>
+					<input offset="1" semantic="NORMAL" source="L4_P3.dae18-normals" set="0"/>
+					<p>0 0 0 0 0 0</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="L4_P3.dae19">
+			<mesh>
+				<source id="L4_P3.dae19-positions">
+					<float_array id="L4_P3.dae19-positions-array" count="3" digits="2490374">4.33796e-06 -3.04531e-05 0</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae19-positions-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="L4_P3.dae19-normals">
+					<float_array id="L4_P3.dae19-normals-array" count="3" digits="2490374">0 0 1</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae19-normals-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="L4_P3.dae19-vertices">
+					<input semantic="POSITION" source="#L4_P3.dae19-positions"/>
+				</vertices>
+				<triangles count="1" material="L4_P3.dae19material">
+					<input offset="0" semantic="VERTEX" source="L4_P3.dae19-vertices" set="0"/>
+					<input offset="1" semantic="NORMAL" source="L4_P3.dae19-normals" set="0"/>
+					<p>0 0 0 0 0 0</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="L4_P3.dae20">
+			<mesh>
+				<source id="L4_P3.dae20-positions">
+					<float_array id="L4_P3.dae20-positions-array" count="3" digits="2490374">4.33796e-06 -3.04531e-05 0</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae20-positions-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="L4_P3.dae20-normals">
+					<float_array id="L4_P3.dae20-normals-array" count="3" digits="2490374">0 0 1</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae20-normals-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="L4_P3.dae20-vertices">
+					<input semantic="POSITION" source="#L4_P3.dae20-positions"/>
+				</vertices>
+				<triangles count="1" material="L4_P3.dae20material">
+					<input offset="0" semantic="VERTEX" source="L4_P3.dae20-vertices" set="0"/>
+					<input offset="1" semantic="NORMAL" source="L4_P3.dae20-normals" set="0"/>
+					<p>0 0 0 0 0 0</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="L4_P3.dae21">
+			<mesh>
+				<source id="L4_P3.dae21-positions">
+					<float_array id="L4_P3.dae21-positions-array" count="3" digits="2490374">4.33796e-06 -3.04531e-05 0</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae21-positions-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="L4_P3.dae21-normals">
+					<float_array id="L4_P3.dae21-normals-array" count="3" digits="2490374">0 0 1</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae21-normals-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="L4_P3.dae21-vertices">
+					<input semantic="POSITION" source="#L4_P3.dae21-positions"/>
+				</vertices>
+				<triangles count="1" material="L4_P3.dae21material">
+					<input offset="0" semantic="VERTEX" source="L4_P3.dae21-vertices" set="0"/>
+					<input offset="1" semantic="NORMAL" source="L4_P3.dae21-normals" set="0"/>
+					<p>0 0 0 0 0 0</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="L4_P3.dae22">
+			<mesh>
+				<source id="L4_P3.dae22-positions">
+					<float_array id="L4_P3.dae22-positions-array" count="3" digits="2490374">4.33796e-06 -3.04531e-05 0</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae22-positions-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="L4_P3.dae22-normals">
+					<float_array id="L4_P3.dae22-normals-array" count="3" digits="2490374">0 0 1</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae22-normals-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="L4_P3.dae22-vertices">
+					<input semantic="POSITION" source="#L4_P3.dae22-positions"/>
+				</vertices>
+				<triangles count="1" material="L4_P3.dae22material">
+					<input offset="0" semantic="VERTEX" source="L4_P3.dae22-vertices" set="0"/>
+					<input offset="1" semantic="NORMAL" source="L4_P3.dae22-normals" set="0"/>
+					<p>0 0 0 0 0 0</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="L4_P3.dae23">
+			<mesh>
+				<source id="L4_P3.dae23-positions">
+					<float_array id="L4_P3.dae23-positions-array" count="3" digits="2490374">4.33796e-06 -3.04531e-05 0</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae23-positions-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="L4_P3.dae23-normals">
+					<float_array id="L4_P3.dae23-normals-array" count="3" digits="2490374">0 0 1</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae23-normals-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="L4_P3.dae23-vertices">
+					<input semantic="POSITION" source="#L4_P3.dae23-positions"/>
+				</vertices>
+				<triangles count="1" material="L4_P3.dae23material">
+					<input offset="0" semantic="VERTEX" source="L4_P3.dae23-vertices" set="0"/>
+					<input offset="1" semantic="NORMAL" source="L4_P3.dae23-normals" set="0"/>
+					<p>0 0 0 0 0 0</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="L4_P3.dae24">
+			<mesh>
+				<source id="L4_P3.dae24-positions">
+					<float_array id="L4_P3.dae24-positions-array" count="3" digits="2490374">9.50777e-06 -2.15935e-05 0</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae24-positions-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="L4_P3.dae24-normals">
+					<float_array id="L4_P3.dae24-normals-array" count="3" digits="2490374">0 0 1</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae24-normals-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="L4_P3.dae24-vertices">
+					<input semantic="POSITION" source="#L4_P3.dae24-positions"/>
+				</vertices>
+				<triangles count="1" material="L4_P3.dae24material">
+					<input offset="0" semantic="VERTEX" source="L4_P3.dae24-vertices" set="0"/>
+					<input offset="1" semantic="NORMAL" source="L4_P3.dae24-normals" set="0"/>
+					<p>0 0 0 0 0 0</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="L4_P3.dae25">
+			<mesh>
+				<source id="L4_P3.dae25-positions">
+					<float_array id="L4_P3.dae25-positions-array" count="3" digits="2490374">1.26456e-05 -1.36572e-05 0</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae25-positions-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="L4_P3.dae25-normals">
+					<float_array id="L4_P3.dae25-normals-array" count="3" digits="2490374">0 0 1</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae25-normals-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="L4_P3.dae25-vertices">
+					<input semantic="POSITION" source="#L4_P3.dae25-positions"/>
+				</vertices>
+				<triangles count="1" material="L4_P3.dae25material">
+					<input offset="0" semantic="VERTEX" source="L4_P3.dae25-vertices" set="0"/>
+					<input offset="1" semantic="NORMAL" source="L4_P3.dae25-normals" set="0"/>
+					<p>0 0 0 0 0 0</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="L4_P3.dae26">
+			<mesh>
+				<source id="L4_P3.dae26-positions">
+					<float_array id="L4_P3.dae26-positions-array" count="3" digits="2490374">1.26456e-05 -1.36572e-05 0</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae26-positions-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="L4_P3.dae26-normals">
+					<float_array id="L4_P3.dae26-normals-array" count="3" digits="2490374">0 0 1</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae26-normals-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="L4_P3.dae26-vertices">
+					<input semantic="POSITION" source="#L4_P3.dae26-positions"/>
+				</vertices>
+				<triangles count="1" material="L4_P3.dae26material">
+					<input offset="0" semantic="VERTEX" source="L4_P3.dae26-vertices" set="0"/>
+					<input offset="1" semantic="NORMAL" source="L4_P3.dae26-normals" set="0"/>
+					<p>0 0 0 0 0 0</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="L4_P3.dae27">
+			<mesh>
+				<source id="L4_P3.dae27-positions">
+					<float_array id="L4_P3.dae27-positions-array" count="3" digits="2490374">1.96605e-05 -4.06024e-06 0</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae27-positions-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="L4_P3.dae27-normals">
+					<float_array id="L4_P3.dae27-normals-array" count="3" digits="2490374">0 0 1</float_array>
+					<technique_common>
+						<accessor count="1" source="#L4_P3.dae27-normals-array" stride="3">
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="L4_P3.dae27-vertices">
+					<input semantic="POSITION" source="#L4_P3.dae27-positions"/>
+				</vertices>
+				<triangles count="1" material="L4_P3.dae27material">
+					<input offset="0" semantic="VERTEX" source="L4_P3.dae27-vertices" set="0"/>
+					<input offset="1" semantic="NORMAL" source="L4_P3.dae27-normals" set="0"/>
+					<p>0 0 0 0 0 0</p>
+				</triangles>
+			</mesh>
+		</geometry>
+	</library_geometries>
+	<library_effects>
+		<effect id="L4_P3.dae0effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae0material">
+			<instance_effect url="#L4_P3.dae0effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae1effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae1material">
+			<instance_effect url="#L4_P3.dae1effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae2effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae2material">
+			<instance_effect url="#L4_P3.dae2effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae3effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae3material">
+			<instance_effect url="#L4_P3.dae3effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae4effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae4material">
+			<instance_effect url="#L4_P3.dae4effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae5effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae5material">
+			<instance_effect url="#L4_P3.dae5effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae6effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae6material">
+			<instance_effect url="#L4_P3.dae6effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae7effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae7material">
+			<instance_effect url="#L4_P3.dae7effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae8effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae8material">
+			<instance_effect url="#L4_P3.dae8effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae9effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae9material">
+			<instance_effect url="#L4_P3.dae9effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae10effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae10material">
+			<instance_effect url="#L4_P3.dae10effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae11effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae11material">
+			<instance_effect url="#L4_P3.dae11effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae12effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae12material">
+			<instance_effect url="#L4_P3.dae12effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae13effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae13material">
+			<instance_effect url="#L4_P3.dae13effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae14effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae14material">
+			<instance_effect url="#L4_P3.dae14effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae15effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae15material">
+			<instance_effect url="#L4_P3.dae15effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae16effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae16material">
+			<instance_effect url="#L4_P3.dae16effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae17effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae17material">
+			<instance_effect url="#L4_P3.dae17effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae18effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae18material">
+			<instance_effect url="#L4_P3.dae18effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae19effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae19material">
+			<instance_effect url="#L4_P3.dae19effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae20effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae20material">
+			<instance_effect url="#L4_P3.dae20effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae21effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae21material">
+			<instance_effect url="#L4_P3.dae21effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae22effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae22material">
+			<instance_effect url="#L4_P3.dae22effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae23effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae23material">
+			<instance_effect url="#L4_P3.dae23effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae24effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae24material">
+			<instance_effect url="#L4_P3.dae24effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae25effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae25material">
+			<instance_effect url="#L4_P3.dae25effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae26effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae26material">
+			<instance_effect url="#L4_P3.dae26effect"/>
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="L4_P3.dae27effect">
+			<profile_COMMON>
+				<technique sid="common">
+					<phong>
+						<diffuse>
+							<color>1 1 1 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="L4_P3.dae27material">
+			<instance_effect url="#L4_P3.dae27effect"/>
+		</material>
+	</library_materials>
+	<library_visual_scenes>
+		<visual_scene id="Multipatch-Converted-Scene">
+			<node id="L4_P3.dae">
+				<translate>0 0 0</translate>
+				<instance_geometry url="#L4_P3.dae14">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="L4_P3.dae14material" target="#L4_P3.dae14material"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+				<instance_geometry url="#L4_P3.dae15">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="L4_P3.dae15material" target="#L4_P3.dae15material"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+				<instance_geometry url="#L4_P3.dae16">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="L4_P3.dae16material" target="#L4_P3.dae16material"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+				<instance_geometry url="#L4_P3.dae17">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="L4_P3.dae17material" target="#L4_P3.dae17material"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+				<instance_geometry url="#L4_P3.dae18">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="L4_P3.dae18material" target="#L4_P3.dae18material"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+				<instance_geometry url="#L4_P3.dae19">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="L4_P3.dae19material" target="#L4_P3.dae19material"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+				<instance_geometry url="#L4_P3.dae20">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="L4_P3.dae20material" target="#L4_P3.dae20material"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+				<instance_geometry url="#L4_P3.dae21">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="L4_P3.dae21material" target="#L4_P3.dae21material"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+				<instance_geometry url="#L4_P3.dae22">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="L4_P3.dae22material" target="#L4_P3.dae22material"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+				<instance_geometry url="#L4_P3.dae23">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="L4_P3.dae23material" target="#L4_P3.dae23material"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+				<instance_geometry url="#L4_P3.dae24">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="L4_P3.dae24material" target="#L4_P3.dae24material"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+				<instance_geometry url="#L4_P3.dae25">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="L4_P3.dae25material" target="#L4_P3.dae25material"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+				<instance_geometry url="#L4_P3.dae26">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="L4_P3.dae26material" target="#L4_P3.dae26material"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+				<instance_geometry url="#L4_P3.dae27">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="L4_P3.dae27material" target="#L4_P3.dae27material"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+		</visual_scene>
+	</library_visual_scenes>
+	<scene>
+		<instance_visual_scene url="#Multipatch-Converted-Scene"/>
+	</scene>
+</COLLADA>
