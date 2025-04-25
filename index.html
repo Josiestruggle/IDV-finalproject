@@ -1,1 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wilmar Biodiversity Report</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@1.15.2/dist/maplibre-gl.css" />
+  <style>
+    /* Base styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+      overflow-y: scroll;
+    }
+    html {
+      height: 100%;
+    }
+    section {
+      scroll-snap-align: start;
+      height: 100vh;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+    }
+    h2 {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+    }
+    h3 {
+      font-size: 1.25em;
+      margin-bottom: 0.5em;
+    }
+    p {
+      font-size: 1.1em;
+      line-height: 1.25;
+      margin-bottom: 1em;
+    }
+    ul {
+      font-size: 1.1em;
+      line-height: 1.25;
+      margin-bottom: 1em;
+    }
+    li {
+      font-size: 1.1em;
+      line-height: 1.25;
+      margin-bottom: 1em;
+    }
+    h1, h2, h3, p, ul, ol {
+      margin: 0;
+      padding: 0;
+    }
+    /* Section 1: Intro with images */
+    #section1 {
+      display: flex;
+      height: 100vh;
+      scroll-snap-align: start;
+    }
+    #section1 .left, #section1 .right {
+      flex: 1;
+      min-width: 0;
+    }
+    #section1 .left {
+      padding: 40px;
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+    
+    #section1 .right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    #section1 .right figure {
+      margin: 0;
+    }
+    #section1 .right img {
+      width: 100%;
+      height: auto;
+      max-height: 45vh;
+      object-fit: contain;
+      display: grid;
+    }
+    #section1 .right figcaption {
+      text-align: center;
+      font-size: 0.9em;
+      margin-top: 4px;
+      color: #333;
+    }
+    /* Section 2: Node Generation and Planting Strategy */
+    #section2 {
+      display: flex;
+      height: 100vh;
+      scroll-snap-align: start;
+    }
+
+    #section2 .left, #section2 .right {
+      flex: 1;
+      min-width: 0;
+    }
+
+    #section2 .left {
+      padding: 40px;
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+
+    #section2 .right {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    #section2 .right figure {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+    }
+
+    #section2 .right img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      flex-grow: 1;
+    }
+
+    #section2 .right figcaption {
+      text-align: center;
+      font-size: 0.9em;
+      margin-top: 8px;
+      color: #333;
+    }
+
+    /* Section 3: Survey Route and Observations */
+    #section3 {
+      display: flex;
+      height: 100vh;
+      scroll-snap-align: start;
+    }
+    #section3 .left, #section3 .right {
+      flex: 1;
+      min-width: 0;
+    }
+    #section3 .left {
+      padding: 40px;
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+    
+    #section3 .right {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    #section3 .right img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    #section3 .right figcaption {
+      text-align: center;
+      font-size: 0.9em;
+      margin-top: 8px;
+      color: #333;
+    }
+
+    
+    /* Section 4: Charts and Map side by side */
+    #section4 {
+      display: flex;
+      height: 100vh;
+      scroll-snap-align: start;
+      overflow: hidden;
+    }
+
+    #section4 .left, #section4 .right {
+      flex: 1;
+      min-width: 0;
+    }
+
+    #section4 .left {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      box-sizing: border-box;
+      height: 100%;
+      overflow-y: auto; /* Enable vertical scroll */
+      scroll-behavior: smooth;
+    }
+
+    #mergedChart {
+      width: 100%;
+  height: 400px;
+  margin-bottom: 1rem;
+    }
+
+    #section4 .right {
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #deck-container {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+
+    #controls {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 10px;
+      border-radius: 6px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    #legend {
+      font-size: 12px;
+    }
+
+    .legend-title {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .legend-gradient {
+      height: 10px;
+      background: linear-gradient(to right, blue, white, red);
+      border: 1px solid #ccc;
+      margin-bottom: 4px;
+    }
+
+    .legend-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+    }
+
+    #tooltip {
+      position: absolute;
+      z-index: 10;
+      pointer-events: none;
+      background: #fff;
+      padding: 5px;
+      border: 1px solid #333;
+      font-size: 12px;
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+  
+  <section id="section1">
+    <div class="left">
+      <h1>Final Project: Landscape Practice for Biodiversity in Vertical Greenery</h1>
+      <h3>Empirical Mapping Biodiversity Assessment of 3D Ecological Performance</h3>
+      <p style="margin-bottom: 1.5rem;"></p>
+      <p><strong>By Ren Junyao</strong></p>
+      <p style="margin-bottom: 3rem;"></p>
+      <h2>Research Context</h2>
+      <p style="margin-bottom: 1.5rem;"></p>
+      <h3>Background: </h3>
+      <p>In landscape architecture, data-integrated modeling of three-dimensional ecological performance is increasingly important. However, there is often a gap between the expected ecological benefits of vertical landscape designs and the actual outcomes observed in reality. Recognizing and understanding this discrepancy is a crucial first step for improving modeling accuracy and guiding future optimizations.</p>
+      <p style="margin-bottom: 1.5rem;"></p>
+      <h3>Research Question: </h3>
+      <p>Does incorporating a vertical dimension in landscape design truly enhance biodiversity at the neighborhood scale? This project specifically asks whether existing vertical greenery installations are effectively improving local biodiversity.</p>
+      <p style="margin-bottom: 1.5rem;"></p>
+      <h3>Case Study Site: </h3>
+      <p>The Wilmar Headquarters building at one-north was selected as the case study. This site features extensive vertical greenery, making it ideal for examining how 3D landscape design affects biodiversity.</p>
+      
+    </div>
+    <div class="right">
+          <figure>
+            <img src="images/Wilmar_Building_View1.jpeg" alt="Wilmar Building View 1">
+            <figcaption>Wilmar Building View 1</figcaption>
+          </figure>
+          <figure>
+            <img src="images/Wilmar_Building_View2.jpeg" alt="Wilmar Building View 2">
+            <figcaption>Wilmar Building View 2</figcaption>
+          </figure>
+          <figure>
+            <img src="images/Site_Garden_View1.jpeg" alt="Site Garden View 1">
+            <figcaption>Site Garden View 1</figcaption>
+          </figure>
+          <figure>
+            <img src="images/Site_Garden_View2.jpeg" alt="Site Garden View 2">
+            <figcaption>Site Garden View 2</figcaption>
+          </figure>
+      </div>
+    </section>
+  
+
+    <section id="section2">
+      <div class="left">
+        <h2>Node Definition and Predicted Biodiversity Scores</h2>
+        <p style="margin-bottom: 1.5rem;"></p>
+        <p><strong>Node Identification: </strong>Using the building’s landscape design plans, delineated every planted patch as a separate node. In practice, this means each green wall segment, rooftop garden, or ground-level planting area was marked out as an individual unit for analysis. These nodes form the basis of biodiversity assessment, as each is considered a distinct habitat area.</p>
+        <p style="margin-bottom: 1rem;"></p>
+        <p><strong>Habitat Value Scoring: </strong>For each identified node, a predicted biodiversity score was calculated from the plants design data. The scoring method accounts for the composition of plant species in that node – nodes with a higher proportion of wildlife-attracting plants (species that provide food or habitat for birds, insects, etc.) receive higher scores.</p>
+        <p style="margin-bottom: 1rem;"></p>
+        <p><strong>Expected Biodiversity Index: </strong>The result is a predicted biodiversity index for every node. This index represents the expected ecological performance of that node before observing the actual fauna. Essentially, it is a hypothesis of how well each patch should support biodiversity based on its vegetation characteristics.</p>
+        <p style="margin-bottom: 1.5rem;"></p>
+        <p><strong>Table: Node Attributes and Predicted Scores: </strong><a href="https://github.com/Josiestruggle/IDV-finalproject/blob/main/tables/nodescore%20with%20plants.csv" target="_blank">Full table link here.</a></p>
+         <style> .table-container { max-height: 60vh; overflow: auto; } .table-container table { border-collapse: collapse; width: 100%; } .table-container th, .table-container td { border: 1px solid #ccc; padding: 4px; } .table-container th { background: #f0f0f0; cursor: pointer; } </style> <script> document.querySelectorAll('table').forEach(function(table) { table.querySelectorAll('th').forEach(function(th, index) { th.addEventListener('click', function() { const tbody = table.querySelector('tbody'); const rows = Array.from(tbody.querySelectorAll('tr')); const isAsc = table.dataset.sortCol == index && table.dataset.sortDir === 'asc'; table.dataset.sortCol = index; table.dataset.sortDir = isAsc ? 'desc' : 'asc'; rows.sort(function(a, b) { let aText = a.children[index].innerText.trim(); let bText = b.children[index].innerText.trim(); let aNum = parseFloat(aText); let bNum = parseFloat(bText); if(!isNaN(aNum) && !isNaN(bNum)) { return (aNum - bNum) * (table.dataset.sortDir === 'asc' ? 1 : -1); } else { return aText.localeCompare(bText) * (table.dataset.sortDir === 'asc' ? 1 : -1); } }); rows.forEach(row => tbody.appendChild(row)); }); }); }); </script> <!-- Section 2: Node Attributes and Plant Scores --> <div class="table-container"> <table> <thead> <tr> <th>Nodes</th> <th>Plants</th> <th>Number</th> <th>Bird-attracting</th> <th>Butterfly/bee-attracting</th> <th>Bat-attracting</th> <th>Native</th> <th>Per Plant Attractive Score</th> <th>Total Plant Score</th> <th title="Total attractiveness score for the node">Node Score</th> </tr> </thead> <tbody> <tr><td>Park P1</td><td>CraC-4</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1879</td></tr> <tr><td></td><td>SamS-1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>2</td><td></td></tr> <tr><td></td><td>CraC-5</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td></td></tr> <tr><td></td><td>CraC-6</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td></td></tr> <tr><td></td><td>CaeF-1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>2</td><td></td></tr> <tr><td></td><td>CaeF-2</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>2</td><td></td></tr> <tr><td></td><td>SyzL-1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>2</td><td>2</td><td></td></tr> <tr><td></td><td>SyzL-1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>2</td><td>2</td><td></td></tr> <tr><td></td><td>SyzL-1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>2</td><td>2</td><td></td></tr> <tr><td></td><td>SyzL-1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>2</td><td>2</td><td></td></tr> <tr><td></td><td>CaeF-3</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>2</td><td></td></tr> <tr><td></td><td>MimE-2</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td></tr> <tr><td></td><td>CaeF-4</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>2</td><td></td></tr> <tr><td></td><td>CaeF-6</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>2</td><td></td></tr> <tr><td></td><td>CaeF-5</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>2</td><td></td></tr> <tr><td></td><td>CaeF-7</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>2</td><td></td></tr> <tr><td></td><td>CraC-7</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td></td></tr> <tr><td></td><td>CraC-8</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td></td></tr> <tr><td></td><td>Asystasia gangetica</td><td>90</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>180</td><td></td></tr> <tr><td></td><td>Cyperus haspan</td><td>40</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td></tr> <tr><td></td><td>Duranta erecta</td><td>150</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>300</td><td></td></tr> <tr><td></td><td>Ixora 'super king'</td><td>150</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>300</td><td></td></tr> <tr><td></td><td>Leucophyllum frutescens</td><td>95</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>190</td><td></td></tr> <tr><td></td><td>Loropetalum chinense</td><td>175</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>175</td><td></td></tr> <tr><td></td><td>Microsorum scolopendria</td><td>50</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td></td></tr> <tr><td></td><td>Murraya paniculata</td><td>100</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>200</td><td></td></tr> <tr><td></td><td>Orthosiphon aristatus</td><td>50</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>100</td><td></td></tr> <tr><td></td><td>Pandanus amaryllifolius</td><td>125</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>125</td><td></td></tr> <tr><td></td><td>Pandanus pygmaeus</td><td>80</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td></tr> <tr><td></td><td>Pennisetum setaceum</td><td>80</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>160</td><td></td></tr> <tr><td></td><td>Vitex ovata</td><td>60</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>120</td><td></td></tr> <tr><td>Park P2</td><td>CitQ</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>2</td><td>1788</td></tr> <tr><td></td><td>CitQ</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>2</td><td></td></tr> <tr><td></td><td>CitQ</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>2</td><td></td></tr> <tr><td></td><td>CynM</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td></tr> <tr><td></td><td>CynM</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td></tr> <tr><td></td><td>CynM</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td></tr> <tr><td></td><td>CynM</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td></tr> <tr><td></td><td>CynM</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td></tr> <tr><td></td><td>CynM</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td></tr> <tr><td></td><td>CynM</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td></tr> <tr><td></td><td>BucA</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>3</td><td>3</td><td></td></tr> <tr><td></td><td>BucA</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>3</td><td>3</td><td></td></tr> <tr><td></td><td>BucA</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>3</td><td>3</td><td></td></tr> <tr><td></td><td>BucA</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>3</td><td>3</td><td></td></tr> <tr><td></td><td>TriO</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td></td></tr> <tr><td></td><td>TriO</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td></td></tr> <tr><td></td><td>Arundina graminifolia</td><td>110</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>110</td><td></td></tr> <tr><td></td><td>Costus speciosus</td><td>75</td><td>1</td><td>1</td><td>0</td><td>1</td><td>2</td><td>150</td><td></td></tr> <tr><td></td><td>Cymbopogon citratus</td><td>100</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td></tr> <tr><td></td><td>Cyperus alternifolius</td><td>340</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td></tr> <tr><td></td><td>Donax grandis</td><td>60</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>60</td><td></td></tr> <!-- ... (All other rows from the dataset) ... --> </tbody> </table> </div> 
+      </div>
+      <div class="right">
+        <figure>
+          <img src="images/Wilmar L1 and Park L1 Nodes.jpeg" alt="L1 and Park Nodes">
+          <figcaption>L1 and Park Nodes</figcaption>
+        </figure>
+        <figure>
+          <img src="images/Wilmar L3 Nodes.jpeg" alt="L3 Nodes">
+          <figcaption>L3 Nodes</figcaption>
+        </figure>
+        <figure>
+          <img src="images/Wilmar L4 Nodes.jpeg" alt="L4 Nodes">
+          <figcaption>L4 Nodes</figcaption>
+        </figure>
+        <figure>
+          <img src="images/Wilmar L5 Nodes.jpeg" alt="L5 Nodes">
+          <figcaption>L5 Nodes</figcaption>
+        </figure>
+        <figure>
+          <img src="images/Wilmar L6 Nodes.jpeg" alt="L6 Nodes">
+          <figcaption>L6 Nodes</figcaption>
+        </figure>
+        <figure>
+          <img src="images/Wilmar L7 Nodes.jpeg" alt="L7 Nodes">
+          <figcaption>L7 Nodes</figcaption>
+        </figure>
+    </div>
+  </section>
+  
+
+    <section id="section3">
+      <div class="left">
+      <h2>On-Site Survey and Results</h2>
+      <p style="margin-bottom: 1.5rem;"></p>
+      <p><strong>Biodiversity Field Survey: </strong>An on-site survey was carried out to collect observed biodiversity data for each node. Surveyors followed predefined transect routes through and around the building, systematically recording all plant and animal species present at each node and counting the number of individual organisms observed.</p>
+      <p style="margin-bottom: 1rem;"></p>
+      <p><strong>Empirical Biodiversity Index: </strong>From the survey data, actual biodiversity indices for each node were calculated. These empirical indices quantify the real biodiversity performance of each node. The collected data not only provide a basis for spatial mapping of biodiversity across the site, but also serve as ground truth for validating the predicted scores statistically.</p>
+      <p style="margin-bottom: 1.5rem;"></p>
+      <p><strong>Table: Survey Recording and Biodiversity Indices: </strong><a href="https://github.com/Josiestruggle/IDV-finalproject/blob/main/tables/wilma%20shannon%20diversity_nodes_survey.csv" target="_blank">Full table link here.</a></p>
+       <div class="table-container"> <table> <thead> <tr> <th>ID</th> <th>Nodes</th> <th title="Number of species observed">0930Richness(species number)</th> <th>0930Abundance(individuals number)</th> <th>0930shannon diversity index(H)</th> <th>0930Shannon Equitability Index (Eh)</th> <th title="Number of species observed">1001Richness(species number)</th> <th>1001Abundance(individuals number)</th> <th>1001shannon diversity index(H)</th> <th>1001Shannon Equitability Index (Eh)</th> <th title="Number of species observed">1002Richness(species number)</th> <th>1002Abundance(individuals number)</th> <th>1002shannon diversity index(H)</th> <th>1002Shannon Equitability Index (Eh)</th> <th title="Number of species observed">1003Richness(species number)</th> <th>1003Abundance(individuals number)</th> <th>1003shannon diversity index(H)</th> <th>1003Shannon Equitability Index (Eh)</th> <th title="Number of species observed">1004Richness(species number)</th> <th>1004Abundance(individuals number)</th> <th>1004shannon diversity index(H)</th> <th>1004Shannon Equitability Index (Eh)</th> <th title="Number of species observed">1005Richness(species number)</th> <th>1005Abundance(individuals number)</th> <th>1005shannon diversity index(H)</th> <th>1005Shannon Equitability Index (Eh)</th> <th title="Number of species observed">Average_Richness</th> <th>Average_Abundance</th> <th>Average_Shannon diversity(H)</th> <th>Average_shannon equitability(Eh)</th> </tr> </thead> <tbody> <tr><td>1</td><td>park P1</td><td>2</td><td>7</td><td>0.410116318</td><td>0.591672779</td><td>5</td><td>21</td><td>1.210536763</td><td>0.75214878</td><td>2</td><td>7</td><td>0.598269589</td><td>0.863120569</td><td>5</td><td>15</td><td>1.337860678</td><td>0.831259577</td><td>1</td><td>8</td><td>0</td><td>0</td><td>4</td><td>7</td><td>1.277034259</td><td>0.921185497</td><td>3.166666667</td><td>10.83333333</td><td>0.805636268</td><td>0.659897867</td></tr> <tr><td>2</td><td>park P2</td><td>4</td><td>7</td><td>1.153741943</td><td>0.83224889</td><td>5</td><td>11</td><td>1.414279065</td><td>0.87874099</td><td>5</td><td>9</td><td>1.149059697</td><td>0.713950932</td><td>5</td><td>20</td><td>1.415022588</td><td>0.879202967</td><td>4</td><td>5</td><td>1.33217904</td><td>0.960964047</td><td>4</td><td>7</td><td>1.277034259</td><td>0.921185497</td><td>4.5</td><td>9.833333333</td><td>1.290219432</td><td>0.864382221</td></tr> <tr><td>7</td><td>park P7</td><td>4</td><td>5</td><td>1.33217904</td><td>0.960964047</td><td>2</td><td>5</td><td>0.500402424</td><td>0.721928095</td><td>6</td><td>31</td><td>1.42314131</td><td>0.794270288</td><td>5</td><td>17</td><td>1.466907105</td><td>0.91144063</td><td>6</td><td>37</td><td>0.993421665</td><td>0.554439188</td><td>7</td><td>56</td><td>1.426305017</td><td>0.732975784</td><td>5</td><td>25.16666667</td><td>1.19039276</td><td>0.779336339</td></tr> <tr><td>8</td><td>park P8</td><td>6</td><td>11</td><td>1.672625446</td><td>0.933510036</td><td>2</td><td>12</td><td>0.450561209</td><td>0.650022422</td><td>3</td><td>10</td><td>0.801818553</td><td>0.729846699</td><td>3</td><td>4</td><td>1.039720771</td><td>0.94639463</td><td>3</td><td>7</td><td>0.79631164</td><td>0.724834092</td><td>4</td><td>7</td><td>1.277034259</td><td>0.921185497</td><td>3.5</td><td>8.5</td><td>1.006345313</td><td>0.817632229</td></tr> <tr><td>9</td><td>park P9</td><td>2</td><td>5</td><td>0.673011667</td><td>0.970950594</td><td>4</td><td>8</td><td>1.073542846</td><td>0.77439747</td><td>3</td><td>5</td><td>1.054920168</td><td>0.960229718</td><td>3</td><td>7</td><td>1.078992208</td><td>0.982141033</td><td>2</td><td>3</td><td>0.636514168</td><td>0.918295834</td><td>3</td><td>4</td><td>1.039720771</td><td>0.94639463</td><td>2.833333333</td><td>5.333333333</td><td>0.926116971</td><td>0.925401547</td></tr> <tr><td>10</td><td>park P10</td><td>2</td><td>4</td><td>0.562335145</td><td>0.811278124</td><td>2</td><td>3</td><td>0.636514168</td><td>0.918295834</td><td>2</td><td>5</td><td>0.673011667</td><td>0.970950594</td><td>2</td><td>2</td><td>0.693147181</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>3</td><td>4</td><td>1.039720771</td><td>0.94639463</td><td>1.833333333</td><td>3</td><td>0.600788155</td><td>0.774486531</td></tr> <tr><td>11</td><td>park P11</td><td>4</td><td>8</td><td>1.386294361</td><td>1</td><td>2</td><td>4</td><td>0.693147181</td><td>1</td><td>3</td><td>11</td><td>0.759547391</td><td>0.69136983</td><td>5</td><td>8</td><td>1.559581156</td><td>0.969022256</td><td>4</td><td>9</td><td>1.149059697</td><td>0.828871363</td><td>2</td><td>5</td><td>0.673011667</td><td>0.970950594</td><td>3.333333333</td><td>7.5</td><td>1.036773576</td><td>0.910035674</td></tr> <tr><td>6</td><td>park P6</td><td>6</td><td>13</td><td>1.519382665</td><td>0.847983611</td><td>5</td><td>19</td><td>1.256637907</td><td>0.780793032</td><td>6</td><td>25</td><td>1.471602889</td><td>0.82131721</td><td>4</td><td>23</td><td>1.192258932</td><td>0.860033024</td><td>4</td><td>13</td><td>1.351681195</td><td>0.975031878</td><td>7</td><td>15</td><td>1.617053153</td><td>0.831000935</td><td>5.333333333</td><td>18</td><td>1.401436123</td><td>0.852693282</td></tr> <!-- ... (All other rows from the dataset) ... --> </tbody> </table> </div>
+    </div>
+    <div class="right">
+      <figure>
+        <img src="images/survey_transects.png" alt="Survey Transects Route">
+        <figcaption>Survey Transects Routes</figcaption>
+      </figure>
+    </section>
+
+   
+    <section id="section4">
+      <div class="left">
+        <h2>Interactive 2.5D Biodiversity Visualization & Statistical Analysis</h2>
+        <p style="margin-bottom: 1.5rem;"></p>
+        <h3>2.5D Interactive Spatial Map: </h3>
+        <p>Right side present a semi-3D (2.5D) map of the building’s green infrastructure to visualize biodiversity data in context. This map displays each node’s predicted biodiversity score alongside its observed biodiversity index at the corresponding location (e.g. along different facade levels and site areas). The spatial visualization highlights where the design anticipated biodiversity “hotspots” and whether those areas actually exhibited high biodiversity on site, making any spatial discrepancies between expectation and reality immediately apparent.</p>
+        <p style="margin-bottom: 1.5rem;"></p>
+        <h3>Scatter Plot (Prediction vs. Observation): </h3>
+        <p>A scatter chart plot the predicted biodiversity score of each node against its observed biodiversity index. This visualization directly shows the correlation between design expectations and real outcomes. Notably, the data points cluster along a downward-sloping trend line – a clear negative correlation. In other words, nodes that were predicted to have higher biodiversity often turned out to have lower biodiversity in reality, and vice versa. This negative trend indicates that the vertical greenery design underperformed relative to expectations: the intended biodiversity benefits were not realized to the extent predicted. The scatter plot thus serves as a crucial reality check, revealing the gap between the model’s predictions and the actual ecological performance measured on site.</p>
+        <p style="margin-bottom: 1.5rem;"></p>
+        <div id="mergedChart" style="width: 100%; height: 100%;"></div>
+        <h3>Implications and Future Strategies: </h3>
+          <ul>
+            <li><strong>Validating Assumptions: </strong>The finding of a negative correlation underscores the importance of empirically validating design assumptions. In this case, the design’s predicted biodiversity gains did not materialize as anticipated, revealing a significant gap between expectation and reality. Rather than a successful improvement, the vertical greenery provided less biodiversity benefit than hoped, which is an important outcome to acknowledge.</li>
+            <p style="margin-bottom: 1rem;"></p>
+            <li><strong>Learning Opportunity: </strong>This discrepancy is not just a critique of the current design – it is a valuable learning opportunity for future 3D ecological design strategies. The mismatch between expected and observed performance highlights where our predictive model or design approach may need refinement. By analyzing why high predicted scores corresponded to low actual biodiversity (for example, perhaps the plant species selection or habitat provisions were not as effective as assumed), designers can identify specific shortcomings in the design strategy.</li>
+            <p style="margin-bottom: 1rem;"></p>
+            <li><strong>Improving Future Designs: </strong>Going forward, these insights can inform the refinement of vertical greenery systems. We can adjust predictive models to be more accurate and update design guidelines to better support actual biodiversity (e.g. selecting plant species with proven wildlife value, providing additional habitat features, or improving maintenance regimes). In essence, the underperformance of this project’s design highlights clear opportunities to improve future vertical green designs so that predicted ecological benefits are more faithfully realized in practice.</li>
+          </ul>
+      </div>
+      
+      <div class="right">
+        <div id="deck-container">
+        <div id="controls">
+          <label for="metricSelect">Color by:</label>
+          <select id="metricSelect">
+            <option value="F_Richness">Species Richness</option>
+            <option value="F_Abundanc">Species Abundance</option>
+            <option value="F_Shannon_">Shannon Diversity</option>
+            <option value="F_shannon1">Shannon Equitability</option>
+            <option value="weight">Predicted Nodes Score</option>
+          </select>
+
+          <div id="legend">
+            <div class="legend-title">Legend</div>
+            <div class="legend-gradient"></div>
+            <div class="legend-labels">
+              <span>Low</span>
+              <span>High</span>
+            </div>
+          </div>
+  
+        </div>
+        <div id="tooltip"></div>
+      </div>
+    </div>
+  </section>
+ 
+    <!-- Include Deck.GL via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/deck.gl@^8/dist.min.js"></script>
+  <script>
+    // Define the URL of the GeoJSON data
+    const dataUrl = "https://raw.githubusercontent.com/Josiestruggle/IDV-finalproject/main/Biodiversity_3Dnodes/biodiversity%20comparison_geojson.geojson";
+    // Metrics we allow coloring by:
+    const metrics = ["F_Richness","F_Abundanc","F_Shannon_","F_shannon1","weight"];
+    let currentMetric = "F_Richness";
+
+    // Function to generate color [R,G,B] for a given value based on min/max of current metric
+    function getColorForValue(value, minVal, maxVal) {
+      // Normalize value between 0 and 1
+      let t = (value - minVal) / (maxVal - minVal);
+      if (t < 0) t = 0;
+      if (t > 1) t = 1;
+      // Compute color as blue->white->red diverging
+      let r, g, b;
+      if (t < 0.5) {
+        // From blue to white
+        const ratio = t * 2;  // 0 to 1 as t goes 0 to 0.5
+        r = Math.round(255 * ratio);
+        g = Math.round(255 * ratio);
+        b = 255;  // stay at full blue
+      } else {
+        // From white to red
+        const ratio = (t - 0.5) * 2;  // 0 to 1 as t goes 0.5 to 1
+        r = 255;
+        g = Math.round(255 * (1 - ratio));
+        b = Math.round(255 * (1 - ratio));
+      }
+      return [r, g, b];
+    }
+
+    // Fetch the GeoJSON data and initialize the Deck.GL map
+    fetch(dataUrl)
+      .then(response => response.json())
+      .then(data => {
+        // Precompute min and max for each metric for efficient color calculation
+        const metricStats = {};
+        metrics.forEach(metric => {
+          metricStats[metric] = { min: Infinity, max: -Infinity };
+        });
+        data.features.forEach(feature => {
+          metrics.forEach(metric => {
+            const val = feature.properties[metric];
+            if (val < metricStats[metric].min) metricStats[metric].min = val;
+            if (val > metricStats[metric].max) metricStats[metric].max = val;
+          });
+        });
+
+        // Create Deck.GL map
+        const deckgl = new deck.DeckGL({
+          container: "deck-container",
+          // Set initial view centered roughly on the data, with a tilt for 3D effect
+          initialViewState: {
+            longitude: 103.7903,
+            latitude: 1.3008,
+            zoom: 18,
+            pitch: 45,
+            bearing: 0
+          },
+          controller: true,  // enable pan/zoom/rotate controls&#8203;:contentReference[oaicite:7]{index=7}
+          getTooltip: ({object}) => {
+            if (!object) return null;
+            // Show label and current metric value in tooltip
+            const prop = object.properties;
+            const value = prop[currentMetric];
+            // Format value (use toFixed for readability if number is fractional)
+            const formattedValue = (typeof value === "number") ? value.toFixed(3) : value;
+            return `${prop.label}: ${formattedValue}`;
+          },
+          // Initially one layer (will update on dropdown change)
+          layers: []
+        });
+
+        // Function to create a GeoJsonLayer for the given metric
+        function createGeoJsonLayer(metric) {
+          return new deck.GeoJsonLayer({
+            id: 'geojson-layer',
+            data: data,
+            stroked: false,
+            filled: true,
+            extruded: false,
+            pickable: true,
+            // Color by the selected metric
+            getFillColor: feature => {
+              const val = feature.properties[metric];
+              const stats = metricStats[metric];
+              return getColorForValue(val, stats.min, stats.max);
+            },
+            // (Optional) use constant line color or no stroke since stroked=false
+            // Update trigger to rerun color calculation when metric changes
+            updateTriggers: {
+              getFillColor: metric  // re-create colors if the metric changes
+            }
+          });
+        }
+
+        // Load the initial layer
+        deckgl.setProps({ layers: [ createGeoJsonLayer(currentMetric) ] });
+
+        // Dropdown change event
+        document.getElementById('metricSelect').addEventListener('change', function() {
+          currentMetric = this.value;
+          // Update Deck.GL layer with new metric coloring&#8203;:contentReference[oaicite:8]{index=8}
+          deckgl.setProps({ layers: [ createGeoJsonLayer(currentMetric) ] });
+        });
+      })
+      .catch(err => {
+        console.error("Failed to load GeoJSON data:", err);
+      });
+</script>
+    
+// Charting with Plotly
+   <!-- Include Plotly and PapaParse at the top -->
+<script src="https://cdn.plot.ly/plotly-2.18.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script>
+Papa.parse("https://raw.githubusercontent.com/Josiestruggle/IDV-finalproject/main/Biodiversity_3Dnodes/Biodiversity_Index_Correlation.csv", {
+  download: true,
+  header: true,
+  complete: function(results) {
+    const rows = results.data;
+    const nodes = rows.map(r => r.Nodes); 
+    // Helper to extract float arrays
+    const getData = key => rows.map(r => parseFloat(r[key]));
+
+    const prediction = getData("Normalized_node_score");
+    const indices = {
+      "Species Richness": getData("Richness"),
+      "Species Abundance": getData("Abundance"),
+      "Shannon Diversity": getData("H"),
+      "Shannon Equitability": getData("Eh")
+    };
+
+    const colors = {
+      "Species Richness": "blue",
+      "Species Abundance": "green",
+      "Shannon Diversity": "red",
+      "Shannon Equitability": "purple"
+    };
+
+    const symbols = {
+      "Species Richness": "circle",
+      "Species Abundance": "square",
+      "Shannon Diversity": "diamond",
+      "Shannon Equitability": "cross"
+    };
+
+    const traces = [];
+
+    // Add scatter and regression line for each index
+    for (let label in indices) {
+      const y = indices[label];
+
+      // Linear regression
+      const n = prediction.length;
+      const sumX = prediction.reduce((a, b) => a + b, 0);
+      const sumY = y.reduce((a, b) => a + b, 0);
+      const sumXY = prediction.reduce((a, b, i) => a + b * y[i], 0);
+      const sumX2 = prediction.reduce((a, b) => a + b * b, 0);
+
+      const slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+      const intercept = (sumY - slope * sumX) / n;
+      const trendY = prediction.map(x => slope * x + intercept);
+
+      // Scatter trace
+      traces.push({
+        x: prediction,
+        y: y,
+        text: nodes,
+        mode: 'markers',
+        type: 'scatter',
+        name: label,
+        marker: {
+          color: colors[label],
+          symbol: symbols[label],
+          size: 8
+        },
+        hovertemplate: `${label}<br>Prediction: %{x:.3f}<br>Observation: %{y:.3f}<br>Node: %{text}<extra></extra>`
+      });
+
+      // Trendline trace
+      traces.push({
+        x: prediction,
+        y: trendY,
+        mode: 'lines',
+        name: `${label} Trend`,
+        line: {
+          color: colors[label],
+          dash: 'dot',
+          width: 2
+        },
+        hoverinfo: "skip",
+        showlegend: false
+      });
+    }
+
+    Plotly.newPlot('mergedChart', traces, {
+      title: 'Prediction Score vs. Empirical Biodiversity Indices',
+      xaxis: { title: 'Prediction Score' },
+      yaxis: { title: 'Biodiversity Index Value' },
+      height: 600,
+      legend: { orientation: 'h', y: -0.2 },
+      margin: { t: 50, b: 100 }
+}, { responsive: true });
+  }
+});
+</script>
+</body>
+</html>
 
